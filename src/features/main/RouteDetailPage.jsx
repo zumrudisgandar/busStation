@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import '../../App.css';
 import staticMap from '../../images/map.png';
 import logo from '../../images/socarLogo.jpeg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const routeDetails = {
   1: {
@@ -45,6 +47,7 @@ const RouteDetailPage = () => {
       </div>
       <div className="details-page">
       <div className="box-details">
+      <h2 className="detail-label">Detallar:</h2>
           <div className="detail-row">
             <span className="detail-label">Ad:</span>
             <span className="detail-value">{`SOCAR - ${details.name}`}</span>
@@ -74,24 +77,6 @@ const RouteDetailPage = () => {
             <span className="detail-value">{details.serviceNo}</span>
           </div>
           <div className="detail-row">
-            <span className="detail-label">Marşrut:</span>
-            <span className="detail-value">
-              {details.route}.
-              <br />
-              {stopsToShow.map((stop, index) => (
-                <React.Fragment key={index}>
-                  - {stop}
-                  <br />
-                </React.Fragment>
-              ))}
-              {details.stops.length > 3 && (
-                <button onClick={() => setShowAll(!showAll)} className="btn btn-link">
-                  {showAll ? 'Show less' : 'Show more'}
-                </button>
-              )}
-            </span>
-          </div>
-          <div className="detail-row">
             <span className="detail-label">Gəliş vaxtı:</span>
             <span className="detail-value">{details.arrival}</span>
           </div>
@@ -101,10 +86,11 @@ const RouteDetailPage = () => {
           </div>
         </div>
         <div className="box-details">
+        <h2 className="detail-label">Marşrut:</h2>
         <div className="route-stops">
             {details.stops.map((stop, index) => (
               <div className="stop" key={index}>
-                <div className={`stop-circle ${index === 0 ? 'start' : ''} ${index === details.stops.length - 1 ? 'end' : ''}`}></div>
+                <FontAwesomeIcon icon={faLocationDot} className="stop-icon" />
                 <div className="stop-name">{stop}</div>
               </div>
             ))}
