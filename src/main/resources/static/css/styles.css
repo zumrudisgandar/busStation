@@ -1,0 +1,37 @@
+/* styles.css */
+h1 {
+  color: rgb(0, 167, 0) !important;
+}
+
+body {
+   background-color: #white;
+   color: black;
+}
+.container {
+    padding-top: 50px;
+    ext-align: center;
+}
+.navbar {
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 167, 0);
+    padding-left: 200px;
+}
+.btn-primary {
+    background-color: rgb(0, 167, 0);
+    border-color: #42f54b;
+}
+.btn-primary:hover {
+    background-color: rgb(108, 232, 108);
+    border-color: #42f54b;
+}
+
+/* Hide the spinner controls for number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
