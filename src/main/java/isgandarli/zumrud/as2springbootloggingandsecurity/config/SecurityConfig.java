@@ -79,7 +79,7 @@ public class SecurityConfig {
                 .headers(headers -> headers.frameOptions().disable())
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/admins/**", "stations/create", "stations/edit", "stations/delete").hasRole("ADMIN")
-                .requestMatchers("/", "/signup/**", "/css/**", "/stations").permitAll()
+                .requestMatchers("/", "/css/**", "/stations", "/admin/auth/forgot-password", "/admin/auth/validate-otp", "/admin/auth/set-new-password", "/forgotPassword/**").permitAll()
                 .requestMatchers(PathRequest.toH2Console()).hasAnyRole("ADMIN") //TBD
                 .anyRequest().authenticated())
                 .formLogin(form -> form

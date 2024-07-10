@@ -16,12 +16,8 @@ public class DbUsersBootstrapper {
     public ApplicationRunner init(UserRepository userRepo, PasswordEncoder encoder) {
         return (args) -> {
             User adminUser = new User("admin",
-                    encoder.encode("admin"), "admin_user@ada.edu.az");
+                    encoder.encode("admin"), "zumrudisgandar@gmail.com");
             userRepo.save(adminUser.addRole("ROLE_ADMIN"));
-
-            userRepo.save(
-                    new User("zumisg",
-                            encoder.encode("12345"), "zisgandarli15645@ada.edu.az"));
         };
     }
 }
